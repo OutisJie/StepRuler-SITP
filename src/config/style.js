@@ -1,4 +1,7 @@
+import { Theme } from 'teaset'
+import { Dimensions } from 'react-native'
 const THEME_COLOR = '#5bc0de';//393E42, 3988BD,4F94CD
+const BACKGROUND_COLOR = '#F9F9F9';
 
 export default {
   primary: '#397af8',
@@ -24,12 +27,21 @@ export default {
   warningText: '#FF0000',
   noticeBackground: '#548ff7',
   noticeText: '#fff',
-	activeTextColor:'#000',
-	inactiveTextColor:'#666',
+  activeTextColor: '#000',
+  inactiveTextColor: '#666',
+  borderColor: '#CCC',
+  successColor: '#32CD32',
+  borderSeparator: Theme.tvBarSeparatorWidth,
+  backgroundColor: BACKGROUND_COLOR,
+  themeColor: THEME_COLOR,
   underlineStyle: {
-		backgroundColor: THEME_COLOR,
-		bottom: 5,
-		height: 3,
-		// width: 40,
+    backgroundColor: THEME_COLOR,
+    bottom: 5,
+    height: 3,
+    // width: 40,
+  },
+  window: {
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').height
 	},
 };

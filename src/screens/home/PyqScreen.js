@@ -9,12 +9,12 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { Button } from 'react-native-elements'
 import { MonoText } from '../../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+export default class PyqScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: '朋友圈',
   };
 
   render() {

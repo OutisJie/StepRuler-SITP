@@ -16,10 +16,16 @@
     "@expo/vector-icons": "^9.0.0",
     "expo": "^32.0.0",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-elements": "^1.1.0",
-    "react-navigation": "^3.0.9"
+    "react-native-image-crop-picker": "^0.23.0",
+    "react-native-indicator": "^0.7.0",
+    "react-native-scrollable-tab-view": "^0.10.0",
+    "react-navigation": "^3.0.9",
+    "teaset": "^0.6.3"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
