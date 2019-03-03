@@ -1,11 +1,9 @@
 import React from 'react'
 
 import { View, FlatList, DeviceEventEmitter } from 'react-native'
-import { Card, Tile, Text } from 'react-native-elements'
 import styleUtil from '../../../config/style'
 import LoadingMore from '../../../components/load/LoadingMore'
 import NavigatorPage from '../../../components/NavigatorPage'
-import navigate from '../../../components/navigate'
 import TopicItem from './TopicItem'
 import toast from '../../../common/toast'
 
@@ -172,34 +170,6 @@ export default class TopicList extends NavigatorPage {
 
   _renderRows = ({ item, separators, index }) => {
     return (
-      // <Card
-      //   containerStyle={{ marginTop: 15, marginBottom: 15 }}
-      // >
-      //   <View style={{ paddingTop: 20 }}>
-      //     <Tile
-      //       imageSrc={{
-      //         uri:
-      //           'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Half_Dome_from_Glacier_Point%2C_Yosemite_NP_-_Diliff.jpg/320px-Half_Dome_from_Glacier_Point%2C_Yosemite_NP_-_Diliff.jpg',
-      //       }}
-      //       title="Half Dome, Yosemite"
-      //       titleStyle={{ fontSize: 20 }}
-      //       activeOpacity={1}
-      //       width={310}
-      //       contentContainerStyle={{ height: 70 }}
-      //     >
-      //       <View
-      //         style={{
-      //           flex: 1,
-      //           flexDirection: 'row',
-      //           justifyContent: 'space-between',
-      //         }}
-      //       >
-      //         <Text style={{ color: 'green' }}>Visit</Text>
-      //         <Text style={{ color: 'blue' }}>Find out More</Text>
-      //       </View>
-      //     </Tile>
-      //   </View>
-      // </Card>
       <TopicItem
         item={item}
         removeTopic={this.removeTopic}

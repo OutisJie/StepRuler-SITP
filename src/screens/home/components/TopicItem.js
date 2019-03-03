@@ -19,10 +19,7 @@ const icons = item => (
 
 const img_anonymous = require('../../../../assets/images/anonymous.png')
 const img_label = require('../../../../assets/images/label.png')
-const img_radio = require('../../../../assets/images/radio.png')
-const img_checked = require('../../../../assets/images/checked.png')
 const img_male = require('../../../../assets/images/limit_male.png')
-const img_female = require('../../../../assets/images/limit_female.png')
 
 export default class TopicItem extends React.Component {
   state = {
@@ -107,7 +104,7 @@ export default class TopicItem extends React.Component {
                 <Text style={{
                   color: item.isJoin ? styleUtil.successColor : 'red',
                   fontSize: 12
-                }}>{item.isJoin ? '已参与' : '未参与'}</Text>
+                }}>{item.isJoin ? '已关注' : '未关注'}</Text>
               </View>
             </View>
             <Text numberOfLines={5} style={style.content}>{item.content}</Text>
