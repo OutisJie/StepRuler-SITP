@@ -4,6 +4,7 @@ import utils from '../../../common/utils'
 import styleUtil from '../../../config/style'
 import { Avatar, Icon, Tile, Text, Image } from 'react-native-elements'
 import { Label } from 'teaset'
+import { NavigationActions } from 'react-navigation';
 
 const icons = item => (
   [
@@ -38,21 +39,16 @@ export default class TopicItem extends React.Component {
 
   render() {
     const { item } = this.state;
+    // const goArticle = NavigationActions.navigate({
+    //   routeName: 'Article',
+    //   params: item
+    // })
     return (
       <TouchableOpacity
         style={style.container}
         activeOpacity={0.5}
         onPress={_ => {
-          // if (item.video || item.audio) {
-          //   this.refs[item.id] && this.refs[item.id].stop();
-          // }
-          // navigate.push(<Text>TopicDetail</Text>, {
-          //   item,
-          //   updateItem: this.updateItem,
-          //   removeTopic: this.props.removeTopic,
-          //   profileUser: this.props.profileUser,
-          //   deleteRow: this.props.deleteRow
-          // })
+          this.props.navigation.navigate('Article', item)
         }}
       >
         <View style={style.card}>

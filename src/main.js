@@ -5,6 +5,9 @@ import { createAppContainer, createDrawerNavigator, DrawerItems } from 'react-na
 import Login from './screens/login';
 import Register from './screens/register';
 import AppNavigator from './navigation'
+import Article from './screens/article'
+import Chat from './screens/chat'
+import Comments from './screens/comments'
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -39,10 +42,22 @@ export default createAppContainer(createDrawerNavigator(
     Main: {
       path: '/main',
       screen: AppNavigator
+    },
+    Article: {
+      path: '/main/article',
+      screen: Article
+    } ,
+    Chat: {
+      path: '/chat',
+      screen: Chat
+    },
+    Comments: {
+      path: '/comments',
+      screen: Comments
     }
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Login',
     contentOptions: {
       activeTintColor: '#548ff7',
       activeBackgroundColor: 'transparent',

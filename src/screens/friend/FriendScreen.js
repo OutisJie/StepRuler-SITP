@@ -4,25 +4,21 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet, Image, ListView } from 'react-native';
 import { Text, Icon, ListItem, Avatar } from 'react-native-elements';
 import TouchableScale from 'react-native-touchable-scale';
-
-import colors from '../../config/style';
-import style from '../../config/style';
 import Toast from 'teaset/components/Toast/Toast';
 
 const log = () => console.log('this is an example method');
 const list = [
   {
-    name: 'Amy Farha',
-    avatar_url:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    subtitle: 'Vice President',
+    name: 'React Native',
+    avatar_url: 'https://facebook.github.io/react/img/logo_og.png',
+    subtitle: ' President',
     linearGradientColors: ['#FF9800', '#F44336'],
   },
   {
     name: 'Chris Jackson',
     avatar_url:
       'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    subtitle: 'Vice Chairman',
+    subtitle: ' Chairman',
     linearGradientColors: ['#3F51B5', '#2196F3'],
   },
   {
@@ -105,7 +101,9 @@ export default class FriendScreen extends Component {
                 start: [1, 0],
                 end: [0.2, 0],
               }}
-              onPress={() => (Toast.success('hello'))}
+              onPress={() => 
+                this.props.navigation.navigate('Chat', {})
+              }
               title={l.name}
               titleStyle={{ color: 'white', fontWeight: 'bold' }}
               subtitleStyle={{ color: 'white' }}

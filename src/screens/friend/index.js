@@ -7,6 +7,7 @@ import TabBar from '../../components/tabbar/TabBar'
 import NavigatorPage from '../../components/NavigatorPage';
 import NavBar from '../../components/NavBar';
 import FriendScreen from './FriendScreen'
+import PyqScreen from './PyqScreen'
 
 export default class FriendIndex extends NavigatorPage {
 	static navigationOptions = {
@@ -78,10 +79,8 @@ export default class FriendIndex extends NavigatorPage {
 				onChangeTab={this.onChangeTab}
 				initialPage={0}
 			>
-        <FriendScreen/>
-        <View>
-          <Text>朋友圈</Text>
-        </View>
+        <FriendScreen navigation={this.props.navigation}/>
+				<PyqScreen navigation={this.props.navigation}/>
 			</ScrollableTabView>
 		);
 	}

@@ -6,6 +6,7 @@ import LoadingMore from '../../../components/load/LoadingMore'
 import NavigatorPage from '../../../components/NavigatorPage'
 import TopicItem from './TopicItem'
 import toast from '../../../common/toast'
+import {data} from '../../sample'
 
 export default class TopicList extends NavigatorPage {
   static defaultProps = {
@@ -28,29 +29,14 @@ export default class TopicList extends NavigatorPage {
     this._isMounted = false
     this.state = {
       user: props.user,
-      list: [{
-        id: 0,
-        isLike: true,
-        likes: 10,
-        comments: 5,
-        shares: 0,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Half_Dome_from_Glacier_Point%2C_Yosemite_NP_-_Diliff.jpg/320px-Half_Dome_from_Glacier_Point%2C_Yosemite_NP_-_Diliff.jpg',
-        isHidden: false,
-        createdAt: '1995-12-17T03:24:00',
-        isJoin: 1,//=islike
-        joins: 15,//=likes+comments+shares
-        title: 'Hello',
-        categoryName: '冒险',
-        content: 'ssasasasasasashhhhhdhdhdhdhhdhdhdggfgfgfbcbcn',
-        user: {
-          avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          _id: 1,
-          username: 'WuJie'
-        }
-      }],
+      list: data,
       isLoading: false, //上拉加载
       isRefreshing: false, //下拉刷新
     }
+  }
+
+  componentWillreceiveprops() {
+    
   }
 
   componentDidMount() {
@@ -82,6 +68,11 @@ export default class TopicList extends NavigatorPage {
         isLoading: false
       })
     }, 1500)
+    if (this.props.tabLabel === '热门') {
+      this.setState({list: data})
+    } else {
+      this.setState({list: data.slice(10, 20)})
+    }
     let uri = this.props.uri
     console.warn("get data:", uri)
   }
@@ -98,7 +89,8 @@ export default class TopicList extends NavigatorPage {
     })
     setTimeout(() => {
       this.setState({
-        isRefreshing: false
+        isRefreshing: false,
+        list: data.slice(5, 15)
       })
     }, 1500)
     let uri = this.props.uri
@@ -171,6 +163,7 @@ export default class TopicList extends NavigatorPage {
   _renderRows = ({ item, separators, index }) => {
     return (
       <TopicItem
+        navigation={this.props.navigation}
         item={item}
         removeTopic={this.removeTopic}
         deleteRow={this.deleteRow}
@@ -181,7 +174,6 @@ export default class TopicList extends NavigatorPage {
   }
 
   _onViewableItemsChanged = ({ viewableItems, changed }) => {
-    // console.log(viewableItems,changed)
     let list = [...this.state.list]
     viewableItems.forEach((v, i) => {
       if (list[v.index].id === v.item.id) {

@@ -5,8 +5,9 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import Home from '../screens/home';
 import Friend from '../screens/friend'
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import Schedule from '../screens/schedule'
+import MapIndex from '../screens/map'
+import MEIndex from '../screens/me'
 
 const HomeStack = createStackNavigator({
   Home: Home,
@@ -17,11 +18,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
     />
   )
 };
@@ -40,37 +37,55 @@ FriendStack.navigationOptions = {
   )
 }
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
+const ScheduleStack = createStackNavigator({
+  Schedule: Schedule
+})
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
+ScheduleStack.navigationOptions = {
+  tabBarLabel: '日程',
+  tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-calendar':'md-calendar'}
     />
   )
-};
+}
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const MapStack = createStackNavigator({
+  MapIndex: MapIndex,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+MapStack.navigationOptions = {
+  tabBarLabel: '地图',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-navigate' : 'md-navigate'}
     />
   ),
 };
 
+const MEStack = createStackNavigator({
+  MEIndex: MEIndex
+})
+
+MEStack.navigationOptions = {
+  tabBarLabel: '个人',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      } />
+  )
+}
+
 export default createBottomTabNavigator({
   HomeStack,
   FriendStack,
-  LinksStack,
-  SettingsStack,
+  ScheduleStack,
+  MapStack,
+  MEStack
 });

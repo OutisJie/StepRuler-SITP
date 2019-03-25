@@ -80,6 +80,8 @@ export default class HomeIndex extends NavigatorPage {
 			>
 				{this.state.tabs.map((v, i) => (
 					<TopicList
+						type={i}
+						navigation={this.props.navigation}
 						key={v.name}
 						{...this.props}
 						tabLabel={v.name}
